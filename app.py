@@ -53,7 +53,7 @@ app_ui = ui.page_navbar(
                 ui.input_text(
                     "language_input",
                     "Enter your books!",
-                    placeholder="Favorite Programming Language(s)",
+                    placeholder="Favorite Books",
                 ),
                 ui.tags.hr(),
             ),
@@ -115,7 +115,7 @@ def server(input, output, session):
     def insights_output():
         answer = input.language_input()
         # count = len(answer)
-        language_string = f"You like {answer}. I will add those to by 'to read' list."
+        language_string = f"You like {answer}. I will add those to my 'to read' list."
         return language_string
 
     get_mtcars_server_functions(input, output, session)
