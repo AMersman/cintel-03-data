@@ -20,6 +20,9 @@ def get_mtcars_inputs():
             max=35,
             value=[10, 35],
         ),
+        # ui.input_select('MT_CARS_CYL', 'Cylinders', [4,6,8], selected = NULL, 
+        #                 multiple = TRUE, selectize = TRUE, width = NULL, size = NULL),
+
         ui.tags.hr(),
         ui.tags.section(
             ui.h3("MT Cars Table"),

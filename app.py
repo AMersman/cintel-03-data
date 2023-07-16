@@ -8,6 +8,23 @@ Each Shiny app has two parts:
 - a server function that provides the logic for the app (similar to JS in a web page).
 
 """
+
+import pathlib
+import pandas as pd
+import seaborn as sns
+
+from util_logger import setup_logger
+
+
+#download iris dataset from seaborn
+# Get a path object representing this data folder.
+data_folder = pathlib.Path(__file__).parent
+
+iris_df = sns.load_dataset("iris")
+iris_df.to_excel(data_folder.joinpath("iris.xlsx"))
+iris_df.to_csv(data_folder.joinpath("iris.csv"))
+
+#shinyapp
 import shinyswatch
 from shiny import App, ui, render
 
@@ -19,12 +36,12 @@ from penguins_server import get_penguins_server_functions
 from penguins_ui_inputs import get_penguins_inputs
 from penguins_ui_outputs import get_penguins_outputs
 
-from util_logger import setup_logger
 
-logger, logname = setup_logger(__name__)
+
+
 
 app_ui = ui.page_navbar(
-    shinyswatch.theme.lumen(),
+    shinyswatch.theme.lux(),
     ui.nav(
         "Home",
         ui.layout_sidebar(
@@ -74,12 +91,12 @@ app_ui = ui.page_navbar(
             get_penguins_outputs(),
         ),
     ),
-    ui.nav(ui.a("About", href="https://github.com/denisecase")),
-    ui.nav(ui.a("GitHub", href="https://github.com/denisecase/cintel-03-data")),
-    ui.nav(ui.a("App", href="https://denisecase.shinyapps.io/cintel-03-data/")),
+    ui.nav(ui.a("About", href="https://github.com/amersman")),
+    ui.nav(ui.a("GitHub", href="https://github.com/amersman/cintel-03-data")),
+    ui.nav(ui.a("App", href="https://amersman.shinyapps.io/cintel-03-data/")),
     ui.nav(ui.a("Examples", href="https://shinylive.io/py/examples/")),
     ui.nav(ui.a("Themes", href="https://bootswatch.com/")),
-    title=ui.h1("Case Dashboard"),
+    title=ui.h1("Mersman Dashboard"),
 )
 
 
