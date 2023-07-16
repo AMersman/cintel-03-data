@@ -21,7 +21,7 @@ def get_mtcars_inputs():
             value=[10, 35],
         ),
         ui.input_select('MT_CARS_CYL', 'Cylinders', [4,6,8], selected = None, 
-                        multiple = TRUE, selectize = TRUE),
+                        multiple = True, selectize = True),
 
         ui.tags.hr(),
         ui.tags.section(
